@@ -261,6 +261,11 @@ export default function ProfileForm({ mode, userType }: ProfileFormProps) {
 
         const res = await updateCustomerProfile(formData);
 
+        const refreshRes = await customAxios.post('/api/auth/refresh');
+
+        const newToken = refreshRes.data.data.accessToken;
+        localStorage.setItem('accessToken', newToken);
+
         if (!res || res.success !== true) {
           throw new Error(res?.message ?? '프로필 등록에 실패했습니다.');
         }
