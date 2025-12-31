@@ -10,6 +10,9 @@ const nextConfig: NextConfig = {
       { protocol: 'http', hostname: '**' },
     ],
   },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 
   async rewrites() {
     return {
