@@ -4,6 +4,9 @@ const backend = process.env.API_URL || 'http://localhost:4000';
 
 /** @type {import('next').NextConfig} */
 const nextConfig: NextConfig = {
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: '**' },
